@@ -44,9 +44,9 @@
 <h2 align="middle">Sean Wang, Shu-Ping Chen, I-Lun Tsai, Kevin Xiong</h2>
 
 <!-- Add Website URL -->
-<h2 align="middle">Website URL: <a href="TODO">TODO</a></h2>
-
-<br><br>
+<!--<h2 align="middle">Website URL: <a href="TODO">TODO</a></h2>-->
+<!---->
+<!--<br><br>-->
 
 
 <!--<p>All of the text in your write-up should be <em>in your own words</em>. If you need to add additional HTML features to this document, you can search the <a href="http://www.w3schools.com/">http://www.w3schools.com/</a> website for instructions. To edit the HTML, you can just copy and paste existing chunks and fill in the text and image file names appropriately.</p>-->
@@ -71,63 +71,131 @@
 <!--<p>or, alternatively, you can include an SVG image of a LaTex formula.</p>-->
 
 <div>
-
-<h2 align="middle">Introduction</h2>
-<p>This proposal provides an overview of a promising technique in computer vision and graphics, which involves reconstructing a colored 3D mesh from point clouds captured using Kinect sensors. The goal is to create a pipeline that can generate texture meshes from Kinect scans of objects or scenes that can be rendered.
-
-</p>
-<h2 align="middle">Problem Description</h2>
-<p>The objective of this project is to tackle the challenge of creating texture meshes from point clouds obtained through Kinect sensors. This is a significant problem as it plays a vital role in various fields, such as virtual reality, gaming, digital art, and computer-aided design. The process of generating high-quality and accurate 3D models is complex as it requires combining several components such as point cloud processing and mesh reconstruction algorithms.
-To overcome this obstacle, we intend to design a comprehensive pipeline that will involve capturing point cloud data through Kinect sensors, extracting relevant information by processing the data, utilizing mesh reconstruction algorithms such as Ball-Pivoting algorithm and Poisson Surface Reconstruction algorithm, and evaluating the quality of the reconstructed meshes using benchmark datasets like the Stanford 3D Scanning Repository. Moreover, our approach will include capturing the real color of the object and projecting it onto the reconstructed mesh.
-
-Our primary goal is to gain a deeper understanding of 3D scanning and reconstruction technologies while also making a significant contribution to the field of computer vision and graphics.
-
-
-</p>
-<br>
-
-<h2 align="middle">Goals and Deliverables</h2>
-<!-- Walk through the ray generation and primitive intersection parts of the rendering pipeline.
-Explain the triangle intersection algorithm you implemented in your own words.
-Show images with normal shading for a few small .dae files. -->
-
-<h3>
-  Project Overview
-</h3>
-<p> Our project aims to develop a comprehensive pipeline that takes input from Kinect scanning of a scene or an object and generates texture meshes that can be rendered. The pipeline will consist of multiple interconnected parts that work together to achieve the desired outcome.
-
-</p>
-<br>
-
-<h3>
-  Pipeline Components
-</h3>
-<p>1. Kinect Input: We will utilize the Kinect sensor to capture point cloud data of the object or scene of interest. The Kinect sensor is capable of capturing depth and RGB information, which will be used as the input for our pipeline.
-
-</p>
-<p>2. Point Cloud Processing: Once the point cloud data is obtained from the Kinect sensor, we will process it to extract relevant information. This may involve filtering, noise reduction, and data normalization techniques to prepare the point cloud data for mesh reconstruction.
-</p>
-<p>3. Mesh Reconstruction: (1 Baseline Plan) We plan to implement an algorithm for mesh reconstruction: the Ball-Pivoting algorithm. The Ball-Pivoting algorithm is a widely used method for reconstructing triangle meshes from point cloud data. (2 Advanced Plan) If the Ball-Pivoting algorithm goes well, we will further implement the Poisson Surface Reconstruction algorithm, which is another surface reconstruction algorithm which is also known for producing smooth and visually appealing meshes.
-</p>
-<p>4. Mesh Quality Evaluation: To assess the quality of our mesh reconstruction implementation, we will compare the results with those obtained from the Stanford 3D Scanning Repository, which is a widely used benchmark dataset for evaluating 3D scanning and reconstruction methods. This will allow us to measure the accuracy and fidelity of our reconstructed meshes and validate the performance of our pipeline. We will select MOS (Mean Opinion Score) as our metric to determine the performance of our system.
-</p>
-<p>5. Color the reconstructed mesh: (Advanced Plan) We will capture the real color of the object and project the color onto the reconstructed mesh.
-</p>
-<br>
-<div align="center">
-  <table style="width=100%">
-      <tr>
-          <td align="middle">
-          <img src="image2.png" width="846px" height = "336px" />
-      </tr>
-  </table>
-</div>
-<h3>
-  Conclusion
-</h3>
-<p>In summary, our project aims to develop a pipeline that takes Kinect scanning input, processes the point cloud data, and applies mesh reconstruction algorithms to generate texture meshes that can be rendered. By comparing the results with a benchmark dataset, we will be able to evaluate the quality of our implementation and ensure that our pipeline produces accurate and visually appealing meshes. This project has the potential to find applications in fields such as virtual reality, gaming, computer-aided design, and digital art. Overall, our pipeline has the potential to contribute to the advancement of 3D scanning and reconstruction technologies, and we are excited about the prospects of our project. As we progress, we will continue to refine and optimize our pipeline to achieve the best possible results. Through this project, we hope to make a meaningful contribution to the field of computer vision and graphics.
-</p>
-<br>
+    <br>
+    <h2 align="middle">Introduction</h2>
+        <p>This proposal provides an overview of a promising technique in computer vision and graphics, which involves reconstructing a colored 3D mesh from point clouds captured using Kinect sensors. The goal is to create a pipeline that can generate texture meshes from Kinect scans of objects or scenes that can be rendered.
+        
+        </p>
+    <br>
+    <h2 align="middle">Problem Description</h2>
+        <p>The objective of this project is to tackle the challenge of creating texture meshes from point clouds obtained through Kinect sensors. This is a significant problem as it plays a vital role in various fields, such as virtual reality, gaming, digital art, and computer-aided design. The process of generating high-quality and accurate 3D models is complex as it requires combining several components such as point cloud processing and mesh reconstruction algorithms.
+        To overcome this obstacle, we intend to design a comprehensive pipeline that will involve capturing point cloud data through Kinect sensors, extracting relevant information by processing the data, utilizing mesh reconstruction algorithms such as Ball-Pivoting algorithm and Poisson Surface Reconstruction algorithm, and evaluating the quality of the reconstructed meshes using benchmark datasets like the Stanford 3D Scanning Repository. Moreover, our approach will include capturing the real color of the object and projecting it onto the reconstructed mesh.
+        
+        Our primary goal is to gain a deeper understanding of 3D scanning and reconstruction technologies while also making a significant contribution to the field of computer vision and graphics.
+        
+        
+        </p>
+    <br>
+    
+    <h2 align="middle">Goals and Deliverables</h2>
+    <!-- Walk through the ray generation and primitive intersection parts of the rendering pipeline.
+    Explain the triangle intersection algorithm you implemented in your own words.
+    Show images with normal shading for a few small .dae files. -->
+    
+    <h3>
+        Project Overview
+    </h3>
+        <p> Our project aims to develop a comprehensive pipeline that takes input from Kinect scanning of a scene or an object and generates texture meshes that can be rendered. The pipeline will consist of multiple interconnected parts that work together to achieve the desired outcome.
+        
+        </p>
+    <br>
+    
+    <h3>
+        Pipeline Components
+    </h3>
+        <p>1. Kinect Input: We will utilize the Kinect sensor to capture point cloud data of the object or scene of interest. The Kinect sensor is capable of capturing depth and RGB information, which will be used as the input for our pipeline.
+        
+        </p>
+        <p>2. Point Cloud Processing: Once the point cloud data is obtained from the Kinect sensor, we will process it to extract relevant information. This may involve filtering, noise reduction, and data normalization techniques to prepare the point cloud data for mesh reconstruction.
+        </p>
+        <p>3. Mesh Reconstruction: (1 Baseline Plan) We plan to implement an algorithm for mesh reconstruction: the Ball-Pivoting algorithm. The Ball-Pivoting algorithm is a widely used method for reconstructing triangle meshes from point cloud data. (2 Advanced Plan) If the Ball-Pivoting algorithm goes well, we will further implement the Poisson Surface Reconstruction algorithm, which is another surface reconstruction algorithm which is also known for producing smooth and visually appealing meshes.
+        </p>
+        <p>4. Mesh Quality Evaluation: To assess the quality of our mesh reconstruction implementation, we will compare the results with those obtained from the Stanford 3D Scanning Repository, which is a widely used benchmark dataset for evaluating 3D scanning and reconstruction methods. This will allow us to measure the accuracy and fidelity of our reconstructed meshes and validate the performance of our pipeline. We will select MOS (Mean Opinion Score) as our metric to determine the performance of our system.
+        </p>
+        <p>5. Color the reconstructed mesh: (Advanced Plan) We will capture the real color of the object and project the color onto the reconstructed mesh.
+        </p>
+    <br>
+    <div align="center">
+        <table style="width=100%">
+            <tr>
+                <td align="middle">
+                    <img src="image2.png" width="846px" height = "336px" />
+            </tr>
+        </table>
+    </div>
+    <h3>
+        Conclusion
+    </h3>
+        <p>In summary, our project aims to develop a pipeline that takes Kinect scanning input, processes the point cloud data, and applies mesh reconstruction algorithms to generate texture meshes that can be rendered. By comparing the results with a benchmark dataset, we will be able to evaluate the quality of our implementation and ensure that our pipeline produces accurate and visually appealing meshes. This project has the potential to find applications in fields such as virtual reality, gaming, computer-aided design, and digital art. Overall, our pipeline has the potential to contribute to the advancement of 3D scanning and reconstruction technologies, and we are excited about the prospects of our project. As we progress, we will continue to refine and optimize our pipeline to achieve the best possible results. Through this project, we hope to make a meaningful contribution to the field of computer vision and graphics.
+        </p>
+    <br>
+    
+    <h2 align="middle">Schedule</h2>
+        <h3>
+            Week 1: 4/3-4/7
+        </h3>
+            <p>
+            1. Complete the proposal
+            </p>
+        <h3>
+            Week 2: 4/10-4/14
+        </h3>
+            <p>
+            1. Look over proposal revisions and understand the direction of the project
+            </p>
+            <p>
+            2. Start the milestone report. Begin developing the program and understand how it is going to be implemented with the Kinect.
+            </p>
+            <p>
+            3. Read the papers for the algorithms and write the pseudocode for our implementation.
+            </p>
+            <p>
+            4. Finish the algorithms and figure out how to collect input data from the kinect to be used for mesh creation.
+            </p>
+        <h3>
+            Week 3: 4/17-4/21
+        </h3>
+            <p>
+            1. Finish milestone report.
+            </p>
+            <p>
+            2. Finish debugging code.
+            </p>
+            <p>
+            3. Begin milestone video and presentation. Video will be created by narrating a presentation of current progress with our program.
+            </p>
+        <h3>
+            Week 4: 4/24-4/28
+        </h3>
+            <p>
+            1. Complete milestone deliverables and turn in by the due date (4/25)
+            </p>
+            <p>
+            2. Any code related issues need to be resolved by this week
+            </p>
+            <p>
+            3. Begin final project deliverables
+            </p>
+        <h3>
+            Week 5: 5/1-5/4
+        </h3>
+            <p>
+            1. Finish up final project deliverables and turn them in
+            </p>
+    
+    <br>
+    <h2 align="middle">Resources</h2>
+    
+        <p> 1.The Poisson algorithm we are using is based on the paper Poisson Surface Reconstruction: https://hhoppe.com/poissonrecon.pdf?from=https://research.microsoft.com/en-us/um/people/hoppe/poissonrecon.pdf&type=path
+        </p>
+        <p> 2.The Ball and Pivoting algorithm is based on the paper The Ball-Pivoting Algorithm for Surface Reconstruction: https://vgc.poly.edu/~csilva/papers/tvcg99.pdf
+        </p>
+        <p> 3. Our computing platform is MacOS on a macbook.
+        </p>
+        <p> 4. We will be using the Xbox Kinect to capture cloud point data to use as our input.
+        </p>
+        <p> 5. IDE: Xcode; Language: C++
+        </p>
 </body>
 </html>
 
