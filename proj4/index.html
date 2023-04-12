@@ -1,7 +1,350 @@
-<html>
-	<head>
-	</head>
-	<body>
-		Project 4 here
-	</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+  body {
+    padding: 100px;
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #121212;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+</style>
+<title>CS 184 Mesh Editor</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1 align="middle">CS 184: Computer Graphics and Imaging, Spring 2023</h1>
+<h1 align="middle">Project 4: Cloth Simulator</h1>
+<h2 align="middle">Kevin Xiong</h2>
+
+<br><br>
+
+<div>
+    
+    <h2 align="middle">Overview</h2>
+    <p>For this assignment, I created a cloth simulator that replicates folds and collisions with itself and different objects. In addition, the cloth was given properties such as shading and texture using GLSL and shaders.
+    </p>
+    
+    <h2 align="middle">Part I: Masses and springs</h2>
+    <h3> Wireframe Structure and Separated Springs </h3>
+    
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/image37.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image3.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <img src="images/image33.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image6.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    
+    <h2 align="middle">Part II: Simulation via Numerical Integration</h2>
+    <div align="center">
+        <table style="width=100%">
+            <tr>
+                <td align="middle">
+                    <img src="images/image4.png" width="400px" />
+            </tr>
+        </table>
+    </div>
+    <h3> Varying different values </h3>
+    <p>When we modify ks, we change how flexible the springs become. Thus, when the cloth falls with a low ks, we see that the cloth flops around much more compared to the default ks value. In addition, there are more folds in the top of the cloth, and the cloth is more stretched out. This is due to the springs being less rigid. When the ks is increased, the cloth becomes stiff and does not flop around nearly as much. In its rest position, it does not have many folds and is not as stretched out. Some interesting changes for lower ks are the increased number of folds at the top, and the corners have smaller folds on them. For higher ks, the main difference is the lack of folds compared to the default parameters, and the top fold hangs higher as shown in the image below.
+    </p>
+    
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/image40.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image10.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <p>When changing density, we see a change in how fast the cloth falls down. At low density, the cloth falls down and stops much faster than the default parameters, and at rest, it looks the same as the default values except that the diagonal folds are smaller and the corners are stretched. At high density, the cloth falls down very slowly, and at rest, the folds are deeper, and the top fold droops forward rather than backward. The interesting properties that occur at high and low densities are the changes in the folds as described previously. As shown below, at low density, the folds are more shallow, and at high density they are deeper (and at high density, the top fold droops forward).
+    </p>
+    
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/image2.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image21.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <p>When lowering the damping value, the cloth swings down at the same rate but flops around violently, similar to how a low ks value behaves. However, it takes longer to stop at rest, and it continues to swing for a while. At a high damping value, the cloth falls down slowly, similarly to a high density value, and it comes to rest quicker than at lower damping values. One interesting feature that occurs when at low damping value is that the top fold bends forwards rather than backward as seen in the default parameters. At higher damping values, there are not many noticeable changes in its features.
+    </p>
+    
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/image14.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image8.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3> Pinned4 </h3>
+    <div align="center">
+        <table style="width=100%">
+            <tr>
+                <td align="middle">
+                    <img src="image30.png" width="400px"/>
+            </tr>
+        </table>
+    </div>
+    
+    <h2 align="middle">Part III: Handling Collisions with Other Objects</h2>
+    <h3> Changing ks values in sphere collision</h3>
+    <p>As we increase the ks value, we see that the cloth folds less around the sphere. At ks = 500, the cloth wraps tightly around the top hemisphere, but when ks = 50,000, the cloth does not wrap the top as tightly. This is evident in the larger folds compared to the folds when ks = 500. In general, higher ks values have less folds than at lower values, but the folds are larger.
+    
+    </p>
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/image13.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image11.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <img src="images/image17.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3> Plane collision</h3>
+    <div align="center">
+        <table style="width=100%">
+            <tr>
+                <td align="middle">
+                    <img src="images/image16.png" width="400px" />
+            </tr>
+        </table>
+    </div>
+    
+    <h2 align="middle">Part IV: Handling Self-Collisions</h2>
+    <h3> Showing how the cloth falls</h3>
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/image1.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image29.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <img src="images/image7.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/CHHHHANNNNGEEEEEE" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3> Varying density and ks</h3>
+    <p>As shown below, when lowering the ks, we see that the cloth folds into itself rapidly and does not spread out. Also, it becomes very “bubbly” while resting on the plane. However, at higher ks values, the cloth creates larger folds and rolls over itself. This gives the impression that the cloth at low ks values exhibits properties of an extremely thin cloth while at higher ks values, it has properties of an extremely thick cloth. When we vary density values, the cloth falls extremely quickly and folds into itself. At rest, it behaves similarly to the default behavior except that it bubbles more quickly. When we increase the density, it falls down slower, and at rest, it is the same as the default values. The number and size of the folds do not seem to change much with density. </p>
+    <br>
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/image1.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image2.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <img src="images/image3.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image4.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <h2 align="middle">Part V: Shaders</h2>
+    <h3> Explaining shaders</h3>
+    <p>Shader programs speed up the shading process in order to apply shaders in real time. It runs alongside the GPU and executes sections of the graphics pipeline by taking in an input and outputting a 4D vector. There are two types of shaders: vertex and fragment shaders. Both of them take in vertex positions and apply some kind of function to them. Vertex shaders apply transforms to positions, and it can change certain geometric properties such as the position’s coordinates and its normal vector. The vertex shader outputs a fragment, which is then dealt with by the fragment shader, which outputs the color of the position/pixel. This allows us to apply textures with a sampler or lighting models such as the Blinn-Phong formula.</p>
+    <h3> Explaining and showing Blinn_Phong</h3>
+    <p>The Blinn-Phong model is a lighting method that does not rely on physics and instead relies on perceptual observation. This allows it to be fast and simple. To determine the values of each pixel, it looks at three properties: ambient lighting, diffuse reflection, and specular highlights. Each component of the below formula corresponds to the previously listed properties respectively. By calculating the direction and angle of the light hitting the position as well as the direction of the camera, we use the formula to determine the color of each pixel.</p>
+    <div align="center">
+        <table style="width=100%">
+            <tr>
+                <td align="middle">
+                    <img src="image9.png" width="400px"/>
+            </tr>
+        </table>
+    </div>
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/image31.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image35.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <img src="images/image34.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image26.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3> Custom texture</h3>
+    <div align="center">
+        <table style="width=100%">
+            <tr>
+                <td align="middle">
+                    <img src="images/image32.png" width="846px" height = "336px" />
+            </tr>
+        </table>
+    </div>
+    <h3> Bump mapping and displacement mapping</h3>
+    <p>Bump mapping and displacement mapping have a similar lighting system (both derived from Blinn-Phong), and the main difference is that displacement changes the positions of the geometry. Using the displacement shader gives a deformed look to both the cloth and sphere, and the sphere’s surface has sharp peaks and valleys along its surface. On the other hand, bump mapping gives the illusion of a textured surface by altering the lighting, but its surface is still very smooth and shown in the below images. When we change the coarseness of the sphere’s mesh, there is not much of a difference in bump mapping. There exists a bit more bumping on -o 128 -a 128, but it is not very noticeable. However, for displacement mapping, the change is more noticeable. At  -o 16 -a 16, the sphere’s mesh is quite smooth with deformities in only some places. At -o 128 -a 128, we see a less smooth surface that has ridges and values, and the rectangles do not follow the sphere’s curvature.</p>
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/image24.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image12.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <img src="images/image28.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image15.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/image25.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image36.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <img src="images/image39.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image20.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3> Mirror</h3>
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/image38.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+                <td>
+                    <img src="images/image5.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Caption goes here.</figcaption>
+                </td>
+            </tr>
+            <br>
+        </table>
+    </div>
+</body>
 </html>
+
