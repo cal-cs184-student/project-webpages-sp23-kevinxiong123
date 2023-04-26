@@ -76,7 +76,7 @@
         </table>
     </div>
     <h3> Varying different values </h3>
-    <p>When we modify ks, we change how flexible the springs become. Thus, when the cloth falls with a low ks, we see that the cloth flops around much more compared to the default ks value. In addition, there are more folds in the top of the cloth, and the cloth is more stretched out. This is due to the springs being less rigid. When the ks is increased, the cloth becomes stiff and does not flop around nearly as much. In its rest position, it does not have many folds and is not as stretched out. Some interesting changes for lower ks are the increased number of folds at the top, and the corners have smaller folds on them. For higher ks, the main difference is the lack of folds compared to the default parameters, and the top fold hangs higher as shown in the image below.
+    <p>When we modify ks, we change how flexible the springs become. Thus, when the cloth falls with a low ks, we see that the cloth flops around much more compared to the default ks value. In addition, there are more folds in the top of the cloth, and the cloth is more stretched out. This is due to the springs being less rigid. When the ks is increased, the cloth becomes stiff and does not flop around nearly as much. In its rest position, it does not have many folds and is not as stretched out. Some interesting changes for lower ks are the increased number of folds at the top, and the bottom corners have smaller folds on them. For higher ks, the main difference is the lack of folds compared to the default parameters, and the top fold hangs higher as shown in the image below.
     </p>
     
     <div align="middle">
@@ -105,14 +105,14 @@
                     <figcaption align="middle">Low density (= 1)</figcaption>
                 </td>
                 <td>
-                    <img src="images/image21.png" align="middle" width="400px"/>
+                    <img src="images/dens100.png" align="middle" width="400px"/>
                     <figcaption align="middle">High density (= 100)</figcaption>
                 </td>
             </tr>
         </table>
     </div>
     <br>
-    <p>When lowering the damping value, the cloth swings down at the same rate but flops around violently, similar to how a low ks value behaves. However, it takes longer to stop at rest, and it continues to swing for a while. At a high damping value, the cloth falls down slowly, similarly to a high density value, and it comes to rest quicker than at lower damping values. One interesting feature that occurs when at low damping value is that the top fold bends forwards rather than backward as seen in the default parameters. At higher damping values, there are not many noticeable changes in its features.
+    <p>When lowering the damping value, the cloth swings down at the same rate but flops around violently, similar to how a low ks value behaves. However, it takes longer to stop at rest, and it continues to swing for a while. At a high damping value, the cloth falls down slowly, similarly to a high density value, and it comes to rest quicker than at lower damping values. One interesting feature that occurs when at low damping value is that the top fold bends forwards rather than backward as seen in the default parameters. At higher damping values, there are not many noticeable changes in its features except that the top may be hanging higher.
     </p>
     
     <div align="middle">
@@ -138,7 +138,7 @@
             </tr>
         </table>
     </div>
-    
+    <br>
     <h2 align="middle">Part III: Handling Collisions with Other Objects</h2>
     <h3> Changing ks values in sphere collision</h3>
     <p>As we increase the ks value, we see that the cloth folds less around the sphere. At ks = 500, the cloth wraps tightly around the top hemisphere, but when ks = 50,000, the cloth does not wrap the top as tightly. This is evident in the larger folds compared to the folds when ks = 500. In general, higher ks values have less folds than at lower values, but the folds are larger.
@@ -175,63 +175,63 @@
             </tr>
         </table>
     </div>
-    
+    <br>
     <h2 align="middle">Part IV: Handling Self-Collisions</h2>
     <h3> Showing how the cloth falls</h3>
     <div align="middle">
         <table style="width=100%">
             <tr>
                 <td>
-                    <img src="images/image1.png" align="middle" width="400px"/>
+                    <img src="images/initial.png" align="middle" width="400px"/>
                     <figcaption align="middle">Initial Collision</figcaption>
                 </td>
                 <td>
-                    <img src="images/image29.png" align="middle" width="400px"/>
+                    <img src="images/second.png" align="middle" width="400px"/>
                     <figcaption align="middle">2</figcaption>
                 </td>
             </tr>
             <br>
             <tr>
                 <td>
-                    <img src="images/image7.png" align="middle" width="400px"/>
+                    <img src="images/third.png" align="middle" width="400px"/>
                     <figcaption align="middle">3</figcaption>
                 </td>
                 <td>
-                    <img src="images/CHHHHANNNNGEEEEEE" align="middle" width="400px"/>
+                    <img src="images/rest.png" align="middle" width="400px"/>
                     <figcaption align="middle">Final resting position</figcaption>
                 </td>
             </tr>
         </table>
     </div>
     <h3> Varying density and ks</h3>
-    <p>As shown below, when lowering the ks, we see that the cloth folds into itself rapidly and does not spread out. Also, it becomes very “bubbly” while resting on the plane. However, at higher ks values, the cloth creates larger folds and rolls over itself. This gives the impression that the cloth at low ks values exhibits properties of an extremely thin cloth while at higher ks values, it has properties of an extremely thick cloth. When we vary density values, the cloth falls extremely quickly and folds into itself. At rest, it behaves similarly to the default behavior except that it bubbles more quickly. When we increase the density, it falls down slower, and at rest, it is the same as the default values. The number and size of the folds do not seem to change much with density. </p>
+    <p>As shown below, when lowering the ks, we see that the cloth folds into itself rapidly and does not spread out. Also, it becomes very “bubbly” while resting on the plane. However, at higher ks values, the cloth creates larger folds and rolls over itself. This gives the impression that the cloth at low ks values exhibits properties of an extremely thin cloth while at higher ks values, it has properties of an extremely thick cloth. When we vary density values, the cloth falls extremely quickly and folds into itself. At rest, it behaves similarly to the default behavior except that it bubbles more quickly. When we increase the density, it falls down slower, and at rest, it looks similar to the default values. The number and size of the folds do not seem to change much with density. </p>
     <br>
     <div align="middle">
         <table style="width=100%">
             <tr>
                 <td>
-                    <img src="images/image1.png" align="middle" width="400px"/>
-                    <figcaption align="middle">Low ks</figcaption>
+                    <img src="images/lowks.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Low ks = 500</figcaption>
                 </td>
                 <td>
-                    <img src="images/image2.png" align="middle" width="400px"/>
-                    <figcaption align="middle">High ks</figcaption>
+                    <img src="images/highks.png" align="middle" width="400px"/>
+                    <figcaption align="middle">High ks = 50,000</figcaption>
                 </td>
             </tr>
             <br>
             <tr>
                 <td>
-                    <img src="images/image3.png" align="middle" width="400px"/>
-                    <figcaption align="middle">Low density</figcaption>
+                    <img src="images/lowdens.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Low density = 4</figcaption>
                 </td>
                 <td>
-                    <img src="images/image4.png" align="middle" width="400px"/>
-                    <figcaption align="middle">High density</figcaption>
+                    <img src="images/highdens.png" align="middle" width="400px"/>
+                    <figcaption align="middle">High density = 30</figcaption>
                 </td>
             </tr>
         </table>
     </div>
-    
+    <br>
     <h2 align="middle">Part V: Shaders</h2>
     <h3> Explaining shaders</h3>
     <p>Shader programs speed up the shading process in order to apply shaders in real time. It runs alongside the GPU and executes sections of the graphics pipeline by taking in an input and outputting a 4D vector. There are two types of shaders: vertex and fragment shaders. Both of them take in vertex positions and apply some kind of function to them. Vertex shaders apply transforms to positions, and it can change certain geometric properties such as the position’s coordinates and its normal vector. The vertex shader outputs a fragment, which is then dealt with by the fragment shader, which outputs the color of the position/pixel. This allows us to apply textures with a sampler or lighting models such as the Blinn-Phong formula.</p>
@@ -280,27 +280,27 @@
         </table>
     </div>
     <h3> Bump mapping and displacement mapping</h3>
-    <p>Bump mapping and displacement mapping have a similar lighting system (both derived from Blinn-Phong), and the main difference is that displacement changes the positions of the geometry. Using the displacement shader gives a deformed look to both the cloth and sphere, and the sphere’s surface has sharp peaks and valleys along its surface. On the other hand, bump mapping gives the illusion of a textured surface by altering the lighting, but its surface is still very smooth and shown in the below images. When we change the coarseness of the sphere’s mesh, there is not much of a difference in bump mapping. There exists a bit more bumping on -o 128 -a 128, but it is not very noticeable. However, for displacement mapping, the change is more noticeable. At  -o 16 -a 16, the sphere’s mesh is quite smooth with deformities in only some places. At -o 128 -a 128, we see a less smooth surface that has ridges and values, and the rectangles do not follow the sphere’s curvature.</p>
+    <p>Bump mapping and displacement mapping have a similar lighting system (both derived from Blinn-Phong), and the main difference is that displacement changes the positions of the geometry. Using the displacement shader gives a deformed look to both the cloth and sphere, and the sphere’s surface has sharp peaks and valleys along its surface. On the other hand, bump mapping gives the illusion of a textured surface by altering the lighting, but its surface is still very smooth as shown in the below images. When we change the coarseness of the sphere’s mesh, there is not much of a difference in bump mapping. There exists a bit more bumping on -o 128 -a 128, but it is not very noticeable. However, for displacement mapping, the change is more noticeable. At  -o 16 -a 16, the sphere’s mesh is quite smooth with some large peaks and valleys. At -o 128 -a 128, we see a less smooth surface that has many smaller ridges and valleys. </p>
     <div align="middle">
         <table style="width=100%">
             <tr>
                 <td>
-                    <img src="images/image24.png" align="middle" width="400px"/>
-                    <figcaption align="middle">Bump mapping on cloth (texture_4)</figcaption>
+                    <img src="images/image58.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Bump mapping on cloth (texture_3)</figcaption>
                 </td>
                 <td>
-                    <img src="images/image12.png" align="middle" width="400px"/>
+                    <img src="images/image59.png" align="middle" width="400px"/>
                     <figcaption align="middle">Bump mapping on sphere</figcaption>
                 </td>
             </tr>
             <br>
             <tr>
                 <td>
-                    <img src="images/image28.png" align="middle" width="400px"/>
+                    <img src="images/image56.png" align="middle" width="400px"/>
                     <figcaption align="middle">Displacement on cloth:</figcaption>
                 </td>
                 <td>
-                    <img src="images/image15.png" align="middle" width="400px"/>
+                    <img src="images/image57.png" align="middle" width="400px"/>
                     <figcaption align="middle">Displacement on sphere:</figcaption>
                 </td>
             </tr>
@@ -310,22 +310,22 @@
         <table style="width=100%">
             <tr>
                 <td>
-                    <img src="images/image25.png" align="middle" width="400px"/>
+                    <img src="images/image55.png" align="middle" width="400px"/>
                     <figcaption align="middle">Bump mapping with -o 16 -a 16</figcaption>
                 </td>
                 <td>
-                    <img src="images/image36.png" align="middle" width="400px"/>
+                    <img src="images/image62.png" align="middle" width="400px"/>
                     <figcaption align="middle">Displacement mapping with -o 16 -a 16</figcaption>
                 </td>
             </tr>
             <br>
             <tr>
                 <td>
-                    <img src="images/image39.png" align="middle" width="400px"/>
+                    <img src="images/image61.png" align="middle" width="400px"/>
                     <figcaption align="middle">Bump mapping with -o 128 -a 128</figcaption>
                 </td>
                 <td>
-                    <img src="images/image20.png" align="middle" width="400px"/>
+                    <img src="images/image60.png" align="middle" width="400px"/>
                     <figcaption align="middle">Displacement with -o 128 -a 128</figcaption>
                 </td>
             </tr>
